@@ -1,15 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=15251ff7_002De0c3_002D4d1a_002D9a66_002D19baff6b1fe5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MultiplesOf3And5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.MultiplesOf3And5&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.EvenFibonacciNumbers&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.LargetPrimeFactor&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.LargestPalindromeProduct&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.SmallestMultiple&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.SmallestMultipleUsingPrime&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.SumSquareDifference&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.TenThousandFirstPrime&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.LargestProductInASeries&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems.SpecialPythagoreanTriplet&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems11to20.LargestProductInAGrid&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems11to20.HighlyDivisibleTriangularNumber&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems1To10.LargeSum&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems1To10.LongestCollatzSequence&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems1To10.LatticePaths&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems1To10.PowerDigitSum&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AF207B5F-4E16-4B7C-95EE-4EC21C3B71CA::.NETCoreApp,Version=v3.1::ProjectEuler.Problems1To10.NumberLetterCounts&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
