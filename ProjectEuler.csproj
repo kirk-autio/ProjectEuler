@@ -16,6 +16,8 @@
     <ItemGroup>
       <None Remove="largeNumber.txt" />
       <EmbeddedResource Include="largeNumber.txt" />
+      <None Remove="MaxPathSum1.txt" />
+      <EmbeddedResource Include="MaxPathSum1.txt" />
     </ItemGroup>
 
 </Project>

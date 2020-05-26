@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using Xunit;
 using System.Linq;
@@ -298,37 +299,104 @@ namespace ProjectEuler
             Output.WriteLine($"{sum}");
         }
 
-        private string[] onesStrings = new[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-        private string[] teensStrings = new[] { "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-        private string[] tensStrings = new[] { "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-        
-        private string AsString(int value)
-        {
-            var thousands = value / 1000;
-            var hundreds = value%1000 / 100;
-            var lessThanHundred = value % 100;
-            var tens = (value%100) / 10;
-            var ones = value % 10;
-                
-            StringBuilder builder = new StringBuilder();
-            if (thousands > 0) builder.Append($"{onesStrings[thousands - 1]}thousand");
-            if (hundreds > 0) builder.Append($"{onesStrings[hundreds - 1]}hundred");
-            if (hundreds > 0 && lessThanHundred > 0) builder.Append("and");
-            if (tens > 1) builder.Append($"{tensStrings[tens -1]}");
-            if (tens == 1 && ones > 0) builder.Append($"{teensStrings[ones-1]}");
-            if (tens == 1 && ones == 0) builder.Append($"{tensStrings[ones]}");
-            if (tens != 1 && ones > 0) builder.Append($"{onesStrings[ones - 1]}");
-
-            return builder.ToString();
-        }
-        
         [Theory, InlineData(1000)]
         public void NumberLetterCounts(int n)
         {
+            string[] onesStrings = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            string[] teensStrings = { "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+            string[] tensStrings = { "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
             var length = 0;
             for (int i = 1; i <= n; i++) length += AsString(i).Length;
             
             Output.WriteLine($"{length}");
+                
+            string AsString(int value)
+            {
+                var thousands = value / 1000;
+                var hundreds = value%1000 / 100;
+                var lessThanHundred = value % 100;
+                var tens = (value%100) / 10;
+                var ones = value % 10;
+                    
+                StringBuilder builder = new StringBuilder();
+                if (thousands > 0) builder.Append($"{onesStrings[thousands - 1]}thousand");
+                if (hundreds > 0) builder.Append($"{onesStrings[hundreds - 1]}hundred");
+                if (hundreds > 0 && lessThanHundred > 0) builder.Append("and");
+                if (tens > 1) builder.Append($"{tensStrings[tens -1]}");
+                if (tens == 1 && ones > 0) builder.Append($"{teensStrings[ones-1]}");
+                if (tens == 1 && ones == 0) builder.Append($"{tensStrings[ones]}");
+                if (tens != 1 && ones > 0) builder.Append($"{onesStrings[ones - 1]}");
+
+                return builder.ToString();
+            }
+        }
+        
+        [Fact]
+        public void MaximumPathSum1()
+        {
+            List<List<int>> values = new List<List<int>>();
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ProjectEuler.MaxPathSum1.txt"))
+            using (var reader = new StreamReader(stream)) {
+                while (!reader.EndOfStream) {
+                    values.Add(reader.ReadLine()?.Trim(' ').Split(' ').Select(int.Parse).ToList());
+                }
+            }
+
+            for (int i = values.Count-2; i >= 0; i--) {
+                for (int j = 0; j <= i; j++) {
+                    values[i][j] += Math.Max(values[i + 1][j], values[i + 1][j + 1]);
+                }
+            }
+            
+            Output.WriteLine($"{values[0][0]}");
+        }
+
+        [Theory, InlineData(1901, 2000)]
+        public void CountingSundays(int yearFrom, int yearTo)
+        {
+            var months = new[]{ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            var currentDay = 2;
+            var sundays = 0;
+
+            for (int year = yearFrom; year <= yearTo; year++) {
+                for (int month = 0; month < months.Length; month++) {
+                    var daysInMonth = month ==1 && year % 4 == 0 && (year % 100 != 0 || year % 400 == 0) ? months[month] + 1 : months[month];
+                    currentDay += daysInMonth % 7;
+                    if (currentDay % 7 == 0) sundays++;
+                }
+            }
+            
+            Output.WriteLine($"{sundays}");
+        }
+
+        private void Multiply(int number, List<int> currentNumber)
+        {
+            int carry = 0;
+
+            for (int i = 0; i < currentNumber.Count; i++) {
+                int result = carry + currentNumber[i] * number;
+                currentNumber[i] = result % 10;
+                carry = result / 10;
+            }
+
+            while (carry != 0) {
+                currentNumber.Add(carry % 10);
+                carry /= 10;
+            }
+        }
+        
+        [Theory, InlineData(100)]
+        public void FactorialDigitSum(uint n)
+        {
+            var digit = new List<int> {1};
+
+            for (int i = 2; i < n; i++) {
+                Multiply(i, digit);
+            }
+
+            Output.WriteLine($"{digit.Sum()}");
         }
     }
 }
