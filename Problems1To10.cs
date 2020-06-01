@@ -212,7 +212,6 @@ namespace ProjectEuler
         public void SummationOfPrimes(int n)
         {
             var primes = new bool[n -1];
-
             for (int i = 1; i < n - 1; i++) {
                 long currentNumber = i + 1;
                 if (primes[i]) continue;
@@ -227,6 +226,23 @@ namespace ProjectEuler
             }
             
             Output.WriteLine($"{sum}");
+        }
+
+        public static IEnumerable<object[]> GCDValues()
+        {
+            yield return new object[] {new int[] {4,7}};
+        }
+        
+        [Theory, MemberData(nameof(GCDValues))]
+        public void GCD(int[] numbers)
+        {
+            var gcd = 0;
+            for (int i = 0; i < numbers.Length; i++) 
+                gcd = GCD(gcd, numbers[i]);
+
+            Output.WriteLine($"{gcd}");
+
+            int GCD(int a, int b) => b == 0 ? a : GCD(b, a % b);
         }
     }
 }
